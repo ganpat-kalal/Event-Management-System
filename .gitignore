@@ -1,0 +1,37 @@
+# Angular
+Frontend/node_modules
+Frontend/dist
+Frontend/.angular-cli.json
+Frontend/.npmrc
+Frontend/karma.conf.js
+Frontend/tsconfig.json
+Frontend/tslint.json
+Frontend/e2e
+
+# .NET
+Backend/bin
+Backend/obj
+Backend/.vs
+Backend/.vscode
+Backend/.idea
+Backend/.nuget
+Backend/.vsix
+Backend/packages
+Backend/*.suo
+Backend/*.user
+Backend/*.bak
+Backend/*.cache
+Backend/*.log
+Backend/*.vspscc
+Backend/*.vssscc
+Backend/*.psess
+Backend/*.vsp
+Backend/*.scc
+Backend/*.suo
+Backend/*.user
+Backend/*.userosscache
+Backend/*.sln.docstates
+Backend/UpgradeLog.htm
+Backend/UpgradeLog.XML
+Backend/ServiceFabricBackup/
+Backend/ServiceFabricBackup/*
