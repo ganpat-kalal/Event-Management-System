@@ -21,6 +21,9 @@ import { EventFilterPipe } from './shared/pipes/event-filter.pipe';
 import { EventSortPipe } from './shared/pipes/event-sort.pipe';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ReactiveFormsModule,
     MaterialModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
