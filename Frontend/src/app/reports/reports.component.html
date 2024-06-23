@@ -1,0 +1,31 @@
+<!-- reports.component.html -->
+<div>
+    <h2>Event Statistics</h2>
+    <div>
+        <h3>Events and Attendees Over Time</h3>
+        <canvas baseChart [datasets]="eventsPerMonthData" [labels]="monthLabels" [options]="chartOptions"
+            [legend]="true" [chartType]="'line'">
+        </canvas>
+        <canvas baseChart [datasets]="attendeesPerMonthData" [labels]="monthLabels" [options]="chartOptions"
+            [legend]="true" [chartType]="'line'">
+        </canvas>
+    </div>
+    <div>
+        <h3>Events by Category</h3>
+        <canvas baseChart [datasets]="eventsByCategoryData" [labels]="categoryLabels" [options]="chartOptions"
+            [legend]="true" [chartType]="'bar'">
+        </canvas>
+    </div>
+    <div>
+        <h3>Attendees by Event</h3>
+        <canvas baseChart [datasets]="attendeesByEventData" [labels]="eventLabels" [options]="chartOptions"
+            [legend]="true" [chartType]="'bar'">
+        </canvas>
+    </div>
+    <div>
+        <h3>Events by Location</h3>
+        <canvas baseChart [datasets]="eventsByLocationData" [labels]="locationLabels" [options]="chartOptions"
+            [legend]="true" [chartType]="'bar'">
+        </canvas>
+    </div>
+</div>

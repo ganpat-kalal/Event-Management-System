@@ -1,0 +1,14 @@
+<mat-form-field>
+    <input matInput [(ngModel)]="filter" placeholder="Filter events">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [(ngModel)]="sortOrder" placeholder="Sort by">
+        <mat-option value="date">Date</mat-option>
+        <mat-option value="name">Name</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<div *ngFor="let event of events | eventFilter:filter | eventSort:sortOrder">
+    {{ event.name }} - {{ event.startDate | date }}
+</div>

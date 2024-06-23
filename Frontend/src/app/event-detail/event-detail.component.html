@@ -1,0 +1,8 @@
+<div class="event-detail-container" *ngIf="event">
+    <h2>{{ event.name }}</h2>
+    <p><strong>Date:</strong> {{ event.startDate | date }} - {{ event.endDate | date }}</p>
+    <p><strong>Location:</strong> {{ event.location }}</p>
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    <p><strong>Attendees:</strong> {{ event.attendees }}</p>
+    <p><strong>Category:</strong> {{ event.category }}</p>
+</div>

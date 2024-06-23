@@ -1,0 +1,33 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput placeholder="Event Name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="startPicker" placeholder="Start Date" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="endPicker" placeholder="End Date" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Location" formControlName="location">
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Attendees" formControlName="attendees">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+                {{ category }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
