@@ -1,6 +1,6 @@
 # Event Management Application
 
-This is a demo project for an Event Management Application developed as part of an interview submission. The project uses Angular for the frontend, ASP.NET Core Web API for the backend, and Microsoft SQL Server as the database server.
+This is a demo project for an Event Management Application. The project uses Angular for the frontend, ASP.NET Core Web API for the backend, and Microsoft SQL Server as the database server.
 
 ## Technologies Used
 
@@ -39,24 +39,3 @@ The backend is built using ASP.NET Core Web API and Entity Framework Core. The m
 ### Database
 
 The application uses Microsoft SQL Server as the database server. Entity Framework Core is used for database interactions, including migrations, seeding, and CRUD operations.
-
-## Setup Instructions
-
-### Prerequisites
-
-- Node.js and npm installed
-- Angular CLI installed
-- .NET Core SDK installed
-- SQL Server installed and running
-
-### Steps to Run the Project
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ganpat-kalal/Event-Management-System.git
-   cd Event-Management-System
-
-1. **Clone the repository:**
-  Navigate to the frontend directory:
-  ```bash
-  cd frontend
