@@ -1,14 +1,46 @@
-<mat-form-field>
-    <input matInput [(ngModel)]="filter" placeholder="Filter events">
-</mat-form-field>
+<div class="home-container">
+    <h1>Welcome to the Event Management App</h1>
 
-<mat-form-field>
-    <mat-select [(ngModel)]="sortOrder" placeholder="Sort by">
-        <mat-option value="date">Date</mat-option>
-        <mat-option value="name">Name</mat-option>
-    </mat-select>
-</mat-form-field>
+    <div class="event-container">
+        <div>
+            <app-calendar></app-calendar>
+        </div>
+        <div>
+            <div class="filter-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Search Events <mat-icon>search</mat-icon> </mat-label>
+                    <input matInput [(ngModel)]="filter">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Sort By</mat-label>
+                    <mat-select [(ngModel)]="sortOrder">
+                        <mat-option value="date">Date</mat-option>
+                        <mat-option value="name">Name</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
 
-<div *ngFor="let event of events | eventFilter:filter | eventSort:sortOrder">
-    {{ event.name }} - {{ event.startDate | date }}
+            <div class="event-list" *ngIf="events.length">
+                <div class="event-card" *ngFor="let event of events | eventFilter:filter | eventSort:sortOrder">
+                    <div class="event-info">
+                        <h2>{{ event.name }}</h2>
+                        <p><strong>Date:</strong> {{ event.startDate | date }} - {{ event.endDate | date }}</p>
+                        <p><strong>Location:</strong> {{ event.location }}</p>
+                        <p><strong>Description:</strong> {{ event.description }}</p>
+                    </div>
+                    <div class="event-actions">
+                        <button mat-stroked-button color="accent" [routerLink]="['/events', event.id]">View
+                            Details</button>
+                        <button *ngIf="isLoggedIn" mat-stroked-button color="primary"
+                            [routerLink]="['/events/edit', event.id]">Edit</button>
+                        <button *ngIf="isLoggedIn" mat-stroked-button color="warn"
+                            (click)="deleteEvent(event.id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!events.length">
+                <p>No events found.</p>
+            </div>
+        </div>
+    </div>
 </div>

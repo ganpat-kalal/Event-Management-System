@@ -13,7 +13,10 @@ const routes: Routes = [
     path: 'events/new',
     component: EventFormComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['Admin'] },
+  },{
+    path: 'events/edit/:id',
+    component: EventFormComponent,
+    canActivate: [AuthGuard],
   },
   { path: 'events/:id', component: EventDetailComponent },
   { path: 'login', component: LoginComponent },

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Backend_EventManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+731949bc1591b4cf986b2e5e6ff57537df67e7fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80b5af32d3f459ecca0faa6530cfc1a617092ef5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Backend_EventManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Backend_EventManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,37 @@
+.event-form-container {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: center;
+
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .field-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+
+    mat-error {
+      color: red;
+      position: fixed;
+      top: -18px;
+    }
+  }
+
+  button {
+    align-self: flex-end;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 20px;
+  }
+}

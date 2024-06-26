@@ -18,11 +18,17 @@
 
   mat-form-field {
     width: 100%;
-    margin-bottom: 20px;
+
+    mat-error {
+      color: red;
+      position: fixed;
+      top: -18px;
+    }
   }
 
   button {
     align-self: flex-end;
+    margin-top: 10px;
   }
 
   .error-message {

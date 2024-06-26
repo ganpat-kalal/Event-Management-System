@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Modules
 import { MaterialModule } from './shared/material.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 // Components
 import { HomeComponent } from './home/home.component';
@@ -15,6 +17,8 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 // Pipes
 import { EventFilterPipe } from './shared/pipes/event-filter.pipe';
@@ -32,6 +36,7 @@ import { AuthGuard } from './auth.guard';
     EventDetailComponent,
     LoginComponent,
     RegisterComponent,
+    CalendarComponent,
     EventFilterPipe,
     EventSortPipe,
   ],
@@ -43,6 +48,9 @@ import { AuthGuard } from './auth.guard';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    MatSnackBarModule,
+    MatIconModule,
+    FullCalendarModule,
   ],
   providers: [provideAnimationsAsync(), AuthService, AuthGuard],
   bootstrap: [AppComponent],

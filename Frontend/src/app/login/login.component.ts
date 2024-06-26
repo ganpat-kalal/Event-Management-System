@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -32,10 +34,15 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  /**
+   * The onSubmit function handles form submission, validates the form, attempts to log in using
+   * authentication service, and displays error message if login fails.
+   * @returns If the `loginForm` is invalid, the `onSubmit()` function will return without further
+   * execution. If the form is valid, the function will attempt to log in using the credentials
+   * provided and handle the response accordingly.
+   */
   onSubmit() {
     this.submitted = true;
-
-    // Stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
@@ -48,7 +55,12 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         (error) => {
-          this.error = error;
+          this.error = error?.error?.message;
+          this.snackBar.open(error?.error?.message, 'Close', {
+            duration: 5000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
           this.loading = false;
         }
       );

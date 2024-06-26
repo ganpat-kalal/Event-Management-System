@@ -17,8 +17,8 @@
             </mat-error>
         </mat-form-field>
 
+        <div *ngIf="error" class="error-message">{{ error }}</div>
         <button mat-raised-button color="primary" type="submit" [disabled]="loading">Login</button>
         <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>
-        <div *ngIf="error" class="error-message">{{ error }}</div>
     </form>
 </div>

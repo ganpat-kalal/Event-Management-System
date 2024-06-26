@@ -1,7 +1,29 @@
-<nav>
-  <a routerLink="/">Home</a>
-  <a routerLink="/events/new">Create Event</a>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-</nav>
+<mat-toolbar color="primary">
+  <span>Event Management</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Home</button>
+  <button *ngIf="!isLoggedIn" mat-button routerLink="/register">Register</button>
+  <button *ngIf="!isLoggedIn" mat-button routerLink="/login">Login</button>
+  <button *ngIf="isLoggedIn" (click)="logOut()" mat-button>Logout</button>
+  <button mat-button routerLink="/events/new">Create Event</button>
+  <button>
+    <div style="font-size: 16px;">Welcome</div>
+    <div style="font-size: 20px; font-weight: bold;">{{ username }}</div>
+  </button>
+</mat-toolbar>
 <router-outlet></router-outlet>
+
+<!-- {
+"closed": false,
+"currentObservers": null,
+"observers": [],
+"isStopped": false,
+"hasError": false,
+"thrownError": null,
+"_value": {
+"id": 1,
+"username": "kalal",
+"email": "ganpatkalal1504@gmail.com",
+"password": "1df1854015e31ca286d015345eaff29a6c6073f70984a3a746823d4cac16b075"
+}
+} -->

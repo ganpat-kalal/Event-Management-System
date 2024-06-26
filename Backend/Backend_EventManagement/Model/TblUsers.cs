@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Backend_EventManagement.Model
 {
-    public class TblUser
+    public class TblUsers
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

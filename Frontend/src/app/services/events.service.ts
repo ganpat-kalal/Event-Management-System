@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class EventService {
+export class EventsService {
   private apiUrl = 'https://localhost:44394/api/events'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}

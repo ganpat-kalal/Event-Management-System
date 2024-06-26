@@ -23,22 +23,26 @@ namespace Backend_EventManagement.Controllers
 
         // GET: api/Events
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TblEvent>>> GetTblEvent()
+        public async Task<ActionResult<IEnumerable<TblEvents>>> GetTblEvent()
         {
-            // return await _context.TblEvent.ToListAsync();
-            var getevent = (from e in _context.TblEvent
-                        join u in _context.TblUser
+            // return await _context.TblEvents.ToListAsync();
+            var getevent = (from e in _context.TblEvents
+                        join u in _context.TblUsers
                         on e.UserId equals u.Id
+                        join c in _context.TblCategories
+                        on e.CategoryId equals c.Id
 
-                        select new TblEvent
+                        select new TblEvents
                         {
                             Id = e.Id,
                             Name = e.Name,
-                            Date = e.Date,
+                            StartDate = e.StartDate,
+                            EndDate = e.EndDate,
                             Location = e.Location,
                             Description = e.Description,
                             Attendees = e.Attendees,
                             UserId = e.UserId,
+                            CategoryId = e.CategoryId,
                         }
                  ).ToListAsync();
 
@@ -47,9 +51,9 @@ namespace Backend_EventManagement.Controllers
 
         // GET: api/Events/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TblEvent>> GetTblEvent(int id)
+        public async Task<ActionResult<TblEvents>> GetTblEvent(int id)
         {
-            var tblEvent = await _context.TblEvent.FindAsync(id);
+            var tblEvent = await _context.TblEvents.FindAsync(id);
 
             if (tblEvent == null)
             {
@@ -62,7 +66,7 @@ namespace Backend_EventManagement.Controllers
         // PUT: api/Events/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTblEvent(int id, TblEvent tblEvent)
+        public async Task<IActionResult> PutTblEvent(int id, TblEvents tblEvent)
         {
             if (id != tblEvent.Id)
             {
@@ -93,9 +97,9 @@ namespace Backend_EventManagement.Controllers
         // POST: api/Events
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TblEvent>> PostTblEvent(TblEvent tblEvent)
+        public async Task<ActionResult<TblEvents>> PostTblEvent(TblEvents tblEvent)
         {
-            _context.TblEvent.Add(tblEvent);
+            _context.TblEvents.Add(tblEvent);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTblEvent", new { id = tblEvent.Id }, tblEvent);
@@ -105,13 +109,13 @@ namespace Backend_EventManagement.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTblEvent(int id)
         {
-            var tblEvent = await _context.TblEvent.FindAsync(id);
+            var tblEvent = await _context.TblEvents.FindAsync(id);
             if (tblEvent == null)
             {
                 return NotFound();
             }
 
-            _context.TblEvent.Remove(tblEvent);
+            _context.TblEvents.Remove(tblEvent);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -119,7 +123,7 @@ namespace Backend_EventManagement.Controllers
 
         private bool TblEventExists(int id)
         {
-            return _context.TblEvent.Any(e => e.Id == id);
+            return _context.TblEvents.Any(e => e.Id == id);
         }
     }
 }

@@ -22,7 +22,24 @@ namespace Backend_EventManagement.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Backend_EventManagement.Model.TblEvent", b =>
+            modelBuilder.Entity("Backend_EventManagement.Model.TblCategories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TblCategories");
+                });
+
+            modelBuilder.Entity("Backend_EventManagement.Model.TblEvents", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,12 +50,15 @@ namespace Backend_EventManagement.Migrations
                     b.Property<int>("Attendees")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -48,15 +68,18 @@ namespace Backend_EventManagement.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TblEvent");
+                    b.ToTable("TblEvents");
                 });
 
-            modelBuilder.Entity("Backend_EventManagement.Model.TblUser", b =>
+            modelBuilder.Entity("Backend_EventManagement.Model.TblUsers", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,7 +102,7 @@ namespace Backend_EventManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TblUser");
+                    b.ToTable("TblUsers");
                 });
 #pragma warning restore 612, 618
         }
