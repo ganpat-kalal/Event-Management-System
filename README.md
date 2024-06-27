@@ -14,6 +14,60 @@ This is a demo project for an Event Management Application. The project uses Ang
 
 - **Database:**
   - Microsoft SQL Server
+ 
+## Features and Functionalities
+
+### User Management
+1. **User Registration:**
+   - New users can register an account by providing necessary details such as username, password, email, etc.
+   
+2. **User Login:**
+   - Registered users can log in to the application using their credentials.
+   
+3. **Authentication:**
+   - The application uses authentication mechanisms to ensure that only registered users can access certain features.
+
+### Event Management
+4. **Create Event:**
+   - Authenticated users can create new events by filling out a form with event details like name, date, time, location, and description.
+   
+5. **View Events:**
+   - Users can view a list of all events in a calendar view, providing a clear and organized display of events by date.
+   
+6. **Event Details:**
+   - Users can click on an event to view detailed information about it, including the event's name, date, time, location, and description.
+   
+7. **Edit Event:**
+   - Users can edit the details of an existing event using an event form.
+   
+8. **Delete Event:**
+   - Users can delete an event from the event details page.
+
+### Navigation
+9. **Routing:**
+   - The application includes a routing module for smooth navigation between different components such as home, login, register, calendar, event details, and event form.
+
+### Security
+10. **Route Protection:**
+    - Certain routes are protected using route guards to ensure that only authenticated users can access specific parts of the application.
+
+### Backend Operations
+11. **CRUD Operations:**
+    - The backend supports Create, Read, Update, and Delete operations for managing events.
+    
+12. **Database Integration:**
+    - The application uses Entity Framework Core to interact with a Microsoft SQL Server database for storing and retrieving data.
+
+### User Interface
+13. **Responsive Design:**
+    - The frontend is built using Angular Material to ensure a responsive and user-friendly interface.
+
+### Error Handling
+14. **Form Validation:**
+    - Forms include validation to ensure that users provide necessary and correctly formatted information before submission.
+
+15. **Error Messages:**
+    - The application provides user-friendly error messages and feedback for invalid operations or failed requests.
 
 ## Project Structure
 
